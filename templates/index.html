@@ -2,7 +2,7 @@
 <html>
 <head>
   {% load static %}
-  <link rel="stylesheet" href="{% url static 'style.css' %}">
+  <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 
 <body>
@@ -11,8 +11,8 @@
   <div class="container nav-content">
     <a class="brand" href="index.html">PremiumShop</a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="create.html" class="btn">+ Create</a>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'create' %}" class="btn">+ Create</a>
     </div>
   </div>
 </div>
@@ -23,34 +23,24 @@
   <div class="grid">
 
     <!-- Example -->
+    {% for product in products %}
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+      <img src="{{ product.image.url }}">
       <div class="card-body">
-        <h3 class="card-title">Nike Air Max</h3>
-        <p class="price">$120</p>
-        <p class="desc">Comfortable, stylish sneakers for everyday use.</p>
+        <h3 class="card-title">{{ product.name }}</h3>
+        <p class="price">${{ product.price }}</p>
+        <p class="desc">{{ product.desc |slice:"30" }}</p>
 
-        <a class="btn" href="detail.html">View</a>
-        <a class="btn-outline" href="update.html">Edit</a>
-        <a class="btn-danger" href="delete.html">Delete</a>
+        <a class="btn" href="{% url 'detail' product.id %}">View</a>
+        <a class="btn-outline" href="{% url 'update' product.id %}">Edit</a>
+        <a class="btn-danger" href="{% url 'delete' product.id %}">Delete</a>
       </div>
     </div>
-     <div class="card">
-      <img src="https://help.rangeme.com/hc/article_attachments/360006928633/what_makes_a_good_product_image.jpg">
-      <div class="card-body">
-        <h3 class="card-title">Product Images</h3>
-        <p class="price">$320</p>
-        <p class="desc">Comfortable, stylish for everyday use. Lorem ipsumRecusandae,  quia </p>
-
-        <a class="btn" href="detail.html">View</a>
-        <a class="btn-outline" href="update.html">Edit</a>
-        <a class="btn-danger" href="delete.html">Delete</a>
-      </div>
-    </div>
-
+    {% endfor %}
   </div>
 
 </div>
 
 </body>
 </html>
+

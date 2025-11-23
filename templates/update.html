@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
 
 <!-- Page Title -->
 <h1 class="page-title" style="text-align:center;">Update Product</h1>
 
-<form>
+<form  method="post" enctype="multipart/form-data">
+  {% csrf_token %}
 
   <label>Name</label>
-  <input type="text" value="Nike Air Max">
+  <input type="text" name="name"  value="{{ product.name }}">
 
   <label>Price</label>
-  <input type="number" value="120">
+  <input type="number" name="price"  value="{{ product.price }}">
 
   <label>Image File</label>
-  <input type="file">
+  <img src="{{ product.image.url }}" style="width: 300px;">
+  <input type="file" name="image">
 
   <label>Description</label>
-  <textarea rows="5">Premium sneakers...</textarea>
+  <textarea rows="5" name="desc">{{ product.desc }}</textarea>
 
   <!-- Checkbox in row -->
   <div class="check-row">
     <input type="checkbox" id="isActive" checked>
-    <label class="check-label" for="isActive">Is Active</label>
+    <label class="check-label" for="isActive">Is Act~ive</label>
   </div>
 
   <div class="button-row">
-      <button type="button" class="btn cancel-btn" onclick="window.location.href='index.html'">Cancel</button>
+      <a href="{% url 'home' %}"><button type="button" class="btn cancel-btn">Cancel</button></a>
       <button type="submit" class="btn save-btn">Save</button>
     </div>
   </form>

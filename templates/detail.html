@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
+  {% load static  %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
 
 <div class="navbar">
   <div class="container nav-content">
-    <a class="brand" href="index.html">PremiumShop</a>
+    <a class="brand" href="{% url 'home' %}">PremiumShop</a>
   </div>
 </div>
 
@@ -15,18 +16,18 @@
   <h1 class="page-title">Product Detail</h1>
 
   <div class="card" style="max-width: 600px; margin:auto;">
-    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+    <img src="{{ product.image.url  }}">
     <div class="card-body">
-      <h3 class="card-title">Nike Air Max</h3>
+      <h3 class="card-title">{{ product.name  }}</h3>
 
-      <p class="price">$120</p>
+      <p class="price">${{ product.price }}</p>
       <p class="desc">
-        Premium comfort and high-end design. Lightweight and flexible.
+        {{ product.desc  }}
       </p>
 
-      <a class="btn-outline" href="index.html">Back</a>
-      <a class="btn" href="update.html">Edit</a>
-      <a class="btn-danger" href="delete.html">Delete</a>
+      <a class="btn-outline" href="{% url 'home' %}">Back</a>
+      <a class="btn" href="{% url 'update' product.id  %}">Edit</a>
+      <a class="btn-danger" href="{% url 'delete' product.id %}">Delete</a>
     </div>
   </div>
 

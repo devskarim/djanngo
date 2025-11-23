@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
-
+  {% load static  %}
+  <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
 
 <h1 class="page-title" style="text-align:center;">Create Product</h1>
 
-<form enctype="multipart/form-data">
+<form enctype="multipart/form-data" method="post">
+  {% csrf_token %}
 
   <label>Name</label>
-  <input type="text" placeholder="Product name">
+  <input type="text" name="name"  placeholder="Product name">
 
   <label>Price</label>
-  <input type="number" placeholder="Price">
+  <input type="number"  name="price"  placeholder="Price">
 
   <label>Product Image</label>
-  <input type="file" accept="image/*">
+  <input type="file" name="image" accept="image/*">
 
   <label>Description</label>
-  <textarea rows="5" placeholder="Product description"></textarea>
-
-  <div class="check-row">
-    <input type="checkbox" id="active">
-    <label for="active" class="check-label">Is Active</label>
-  </div>
+  <textarea rows="5" name="desc" placeholder="Product description"></textarea>
 
   <div class="button-row">
-    <button type="button" class="btn cancel-btn" onclick="window.location.href='index.html'">Cancel</button>
+    <a href="{% url 'home' %}"><button type="button" class="btn cancel-btn">Cancel</button></a>
     <button type="submit" class="btn save-btn">Save</button>
   </div>
 </form>
