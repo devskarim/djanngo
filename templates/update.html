@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Page Title -->
+<h1 class="page-title" style="text-align:center;">Update Product</h1>
+
+<form>
+
+  <label>Name</label>
+  <input type="text" value="Nike Air Max">
+
+  <label>Price</label>
+  <input type="number" value="120">
+
+  <label>Image File</label>
+  <input type="file">
+
+  <label>Description</label>
+  <textarea rows="5">Premium sneakers...</textarea>
+
+  <!-- Checkbox in row -->
+  <div class="check-row">
+    <input type="checkbox" id="isActive" checked>
+    <label class="check-label" for="isActive">Is Active</label>
+  </div>
+
+  <div class="button-row">
+      <button type="button" class="btn cancel-btn" onclick="window.location.href='index.html'">Cancel</button>
+      <button type="submit" class="btn save-btn">Save</button>
+    </div>
+  </form>
+
+</body>
+</html>

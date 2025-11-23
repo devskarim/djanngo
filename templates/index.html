@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% url static 'style.css' %}">
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="container nav-content">
+    <a class="brand" href="index.html">PremiumShop</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="create.html" class="btn">+ Create</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h1 class="page-title">All Products</h1>
+
+  <div class="grid">
+
+    <!-- Example -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+      <div class="card-body">
+        <h3 class="card-title">Nike Air Max</h3>
+        <p class="price">$120</p>
+        <p class="desc">Comfortable, stylish sneakers for everyday use.</p>
+
+        <a class="btn" href="detail.html">View</a>
+        <a class="btn-outline" href="update.html">Edit</a>
+        <a class="btn-danger" href="delete.html">Delete</a>
+      </div>
+    </div>
+     <div class="card">
+      <img src="https://help.rangeme.com/hc/article_attachments/360006928633/what_makes_a_good_product_image.jpg">
+      <div class="card-body">
+        <h3 class="card-title">Product Images</h3>
+        <p class="price">$320</p>
+        <p class="desc">Comfortable, stylish for everyday use. Lorem ipsumRecusandae,  quia </p>
+
+        <a class="btn" href="detail.html">View</a>
+        <a class="btn-outline" href="update.html">Edit</a>
+        <a class="btn-danger" href="delete.html">Delete</a>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
